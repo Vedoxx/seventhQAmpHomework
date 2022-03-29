@@ -8,44 +8,48 @@ public class seventhHomework {
     public static void main(String[] args) {
         ArrayList<Shape> shape = new ArrayList<>();
         char answer;
-        int userAnswer = userMenu();
-        if (userAnswer == 1) {
-            int subAnswer = subMenu();
-            System.out.println("Enter circle radius:");
-            for (int i = 0; i < subAnswer; i++) {
-                System.out.print(i + 1 + " circle:");
-                double circleRadius = input.nextDouble();
-                System.out.println("------------------------------------------------");
-                shape.add(new Circle(circleRadius));
+        do {
+            int userAnswer = userMenu();
+            if (userAnswer == 1) {
+                int subAnswer = subMenu();
+                System.out.println("Enter circle radius:");
+                for (int i = 0; i < subAnswer; i++) {
+                    System.out.print(i + 1 + " circle:");
+                    double circleRadius = input.nextDouble();
+                    System.out.println("------------------------------------------------");
+                    shape.add(new Circle(circleRadius));
+                }
             }
-            result(shape);
-        }
-        if (userAnswer == 2) {
-            int subAnswer = subMenu();
-            for (int i = 0; i < subAnswer; i++) {
-                System.out.print("Enter the length of the rectangle:");
-                double rectangleLength = input.nextDouble();
-                System.out.print("Enter the width of the rectangle:");
-                double rectangleWidth = input.nextDouble();
-                System.out.println("----------------------------------------------");
-                shape.add(new Rectangular(rectangleLength, rectangleWidth));
+            if (userAnswer == 2) {
+                int subAnswer = subMenu();
+                for (int i = 0; i < subAnswer; i++) {
+                    System.out.print("Enter the length of the rectangle:");
+                    double rectangleLength = input.nextDouble();
+                    System.out.print("Enter the width of the rectangle:");
+                    double rectangleWidth = input.nextDouble();
+                    System.out.println("----------------------------------------------");
+                    shape.add(new Rectangular(rectangleLength, rectangleWidth));
+                }
             }
-            result(shape);
-        }
-        if (userAnswer == 3) {
-            int subAnswer = subMenu();
-            for (int i = 0; i < subAnswer; i++) {
-                System.out.print("Enter edge A:");
-                double edgeA = input.nextDouble();
-                System.out.print("Enter edge B:");
-                double edgeB = input.nextDouble();
-                System.out.print("Enter edge C:");
-                double edgeC = input.nextDouble();
-                System.out.println("--------------------------------------");
-                shape.add(new Triangle(edgeA, edgeB, edgeC));
+            if (userAnswer == 3) {
+                int subAnswer = subMenu();
+                for (int i = 0; i < subAnswer; i++) {
+                    System.out.print("Enter edge A:");
+                    double edgeA = input.nextDouble();
+                    System.out.print("Enter edge B:");
+                    double edgeB = input.nextDouble();
+                    System.out.print("Enter edge C:");
+                    double edgeC = input.nextDouble();
+                    System.out.println("--------------------------------------");
+                    shape.add(new Triangle(edgeA, edgeB, edgeC));
+                }
             }
-            result(shape);
-        }
+            System.out.println("Would you like to add a shape?");
+            System.out.print("Answer:");
+            answer = input.next().charAt(0);
+
+        } while (answer == 'y' || answer == 'Y');
+        result(shape);
     }
 
     public static int userMenu() {
